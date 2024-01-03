@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="row justify-contact">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">product</a></li>
+                    <li><a href="signup.html">Signup</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <form id="form">
+           <h2>Product</h2>
+           <input type="url" name="image" placeholder="image" id="image" required><br><br>
+           <input type="text" name="title" placeholder="title" id="title" required><br><br>
+           <input type="number" name="price" placeholder="price" id="price" required><br><br>
+           <input type="text" name="desc" placeholder="desc" id="desc" required><br><br>
+           <input type="submit" value="create" id="button">
+        </form>
+  </section>
+</body>
+<script>
+    document.getElementById("form").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let user={
+        image:document.getElementById("image").value,
+        title:document.getElementById("title").value,
+        desc:document.getElementById("desc").value,
+        price:document.getElementById("price").value,
+    }
+    console.log(user)
+
+    fetch("http://localhost:8080/product/create",{
+        method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify(user)
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        console.log(data)
+        alert('create Sucessfully');
+        // window.location.href="http://127.0.0.1:5500/frontend/index.html";
+    })
+});
+</script>
+</html>

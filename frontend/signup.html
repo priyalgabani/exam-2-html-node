@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Signup page</title>
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   <header>
+      <div class="container">
+          <nav>
+              <ul class="row justify-contact">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="product.html">product</a></li>
+                  <li><a href="signup.html">signup</a></li>
+                  <li><a href="login.html">login</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+   <section>
+         <form id="submit" >
+            <h2>signup</h2>
+            <input type="text" name="username" id="username" placeholder="enter Username" required><br><br>
+            <input type="email" mame="email" id="email"placeholder="enter email" required><br><br>
+            <input type="password" name="password" id="password" placeholder="enter password" required><br><br>
+            <input type="submit" value="Signup" id="button" >
+         </form>
+   </section>
+</body>
+<script>
+   document.getElementById("submit").addEventListener("submit",(e)=>{
+      e.preventDefault();
+      let object={
+         username:document.getElementById("username").value,
+         email:document.getElementById("email").value,
+         password:document.getElementById("password").value,
+      }
+      fetch("http://localhost:8080/user/signup",{
+         method: "POST",
+         headers:{"content-type":"application/json"},
+         body:JSON.stringify(object)
+      })
+        .then((res)=>res.json())
+        .then((data)=>{
+            console.log(data);
+            document.cookie = `token=${data.token};path=/;`
+            alert("signup successful");
+            window.location.href="http://127.0.0.1:5500/frontend/login.html"
+        })
+   })
+</script>
+</html>

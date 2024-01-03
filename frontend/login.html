@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login</title>
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+   <header>
+      <div class="container">
+          <nav>
+              <ul class="row justify-contact">
+                  <li><a href="index.html">home</a></li>
+                  <li><a href="product.html">product</a></li>
+                  <li><a href="signup.html">signup</a></li>
+                  <li><a href="login.html">login</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+   <section>
+         <form id="form">
+            <h2>login</h2>
+            <input type="text" name="email" placeholder="email" id="email" required><br><br>
+            <input type="password" name="password" placeholder="password" id="password" required><br><br>
+            <input type="submit" value="Login" id="button">
+         </form>
+   </section>
+</body>
+<script>
+   document.getElementById("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      let object = {
+         email: document.getElementById("email").value,
+         password: document.getElementById("password").value
+      }
+      console.log(object);
+      fetch(`http://localhost:8080/user/login`, {
+         method: "POST",
+         headers: { "content-type": "application/json" },
+         body: JSON.stringify(object)
+      })
+
+      .then((res)=>res.json())
+        .then((data)=>{
+            console.log(data);
+            document.cookie = `token=${data.token};path=/;`
+            alert("login successful");
+            window.location.href="http://127.0.0.1:5500/frontend/index.html"
+        })
+
+   })
+</script>
+</html>

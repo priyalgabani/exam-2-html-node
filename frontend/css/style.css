@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container{
+    max-width: 1140px;
+    margin: auto;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  a{
+    text-decoration: none;
+  }
+  ul,ol{
+    list-style: none;
+  }
+  header{
+    background-color: rgb(56, 57, 57);
+    padding: 12px;
+    font-family: sans-serif;
+  }
+  nav ul li a{
+    color: rgb(186, 182, 182);
+    font-size: 60px;
+    padding: 20px;
+    font-size: 30px;
+  }
+  form input{
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  h2{
+    text-align: center;
+    color: rgb(62, 61, 61);
+  }
+  form{
+    width: 400px;
+    height: 450px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgb(95, 95, 96);
+    border-radius: 10px;
+    padding:30px 100px;
+    }
+  .justify-contact{
+    justify-content: space-around;
+  }
+  #button   {
+    padding:10px 30px;
+    border: none;
+     background-color: rgb(83, 84, 84);
+     border-radius: 5px;
+     color: aliceblue;
+     
+  }
+  button{
+    padding:10px 25px;
+    border: none;
+    background-color: rgb(49, 49, 49);
+    border-radius: 5px;
+    color: aliceblue;
+  }
+  #box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px;
+    /* color: aliceblue; */
+  }
+  img {
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+  h2,h4,h5,p{
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  /* product section */
+
+  header{
+    background-color: rgb(56, 57, 57);
+    padding: 12px;
+    font-family: sans-serif;
+  }
+  nav ul li a{
+    color: rgb(186, 182, 182);
+    font-size: 60px;
+    padding: 20px;
+    font-size: 30px;
+  }
+  form input{
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  h2{
+    text-align: center;
+    color: rgb(62, 61, 61);
+  }
+  form{
+    width: 400px;
+    height: 450px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgb(95, 95, 96);
+    border-radius: 10px;
+    padding:30px 100px;
+    }
+
+#box img{
+  width: 300px;
+}
